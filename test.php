@@ -13,7 +13,8 @@ $date = $_POST["date"];
 $comments = $_POST["comments"];
 
 $message = "У Вас новый заказ с сайта";
-$to = "lisogorsky@mail.ru";
+/*$to = "lisogorsky@mail.ru";*/
+$to = $_POST["email"];
 $from = "mail@form-test.mcdir.ru";
 $subject = "У Вас новый вопрос с сайта";
 
