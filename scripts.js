@@ -117,5 +117,17 @@
 
 		})
 
+		var a = location.hash;
+		if (a == "#thanks") {
+			setTimeout(function() {
+				$('#thanks').fadeOut(1000);
+			},5000);
+		}
+		if (a == "#error") {
+			setTimeout(function() {
+				$('#error').fadeOut(1000);
+			},5000);
+		}
+
 	});
 })(jQuery);

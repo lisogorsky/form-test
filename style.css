@@ -217,3 +217,44 @@ body .form-group .input-blur:not([type="radio"]):invalid {
 	font-weight: bold;	
 	display: none;	
 }
+#thanks, #error {
+	display: none;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 16px;
+	background-color: rgba(1, 1, 1, 0.725);
+	z-index: 10000;
+	overflow: auto;
+}
+#thanks span, #error span {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	transition: all 1s;
+	color: #fff;
+}
+#thanks:target, #error:target {
+	display: block;
+}
+#thanks > div, #error > div {
+    width: 200px;
+    height: 105px;
+    margin: auto;
+    text-align: center;
+    background: #ccc;
+    z-index: 10001;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(255,255,255, .5);
+    line-height: 1.2;
+	font-size: 14px;
+}
