@@ -11,15 +11,10 @@ $zip = $_POST["zip"];
 $address = $_POST["address"];
 $date = $_POST["date"];
 $comments = $_POST["comments"];
-
-$message = "У Вас новый заказ с сайта";
-/*$to = "lisogorsky@mail.ru";*/
 $to = $_POST["email"];
 $from = "mail@form-test.mcdir.ru";
 $subject = "У Вас новый вопрос с сайта";
-
 $message = '<br>'.'<b>'.'Имя клиента: '.'</b>'.$name.'<br>'.'<b>'.'Телефон клиента: '.'</b>'.$tel.'<br>'.'<b>'.'Email клиента: '.'</b>'.$email.'<br>'.'<b>'.'Доставка или самовывоз: '.'</b>'.$delivery.'<br>'.'<b>'.'Страна: '.'</b>'.$country.'<br>'.'<b>'.'Город: '.'</b>'.$city.'<br>'.'<b>'.'Индекс: '.'</b>'.$zip.'<br>'.'<b>'.'Адрес: '.'</b>'.$address.'<br>'.'<b>'.'Дата доставки: '.'</b>'.$date.'<br>'.'<b>'.'Комментарии: '.'</b>'.$comments;
-$message.= $text; 
 $subject = "=?utf-8?B?".base64_encode($subject)."?=";
 $headers = "From: $from\r\nReply-to: $from\r\nContent-type: text/html; charset=utf-8\r\n";
 if (mail ($to, $subject, $message, $headers)) {

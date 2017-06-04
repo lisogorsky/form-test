@@ -1,3 +1,5 @@
+"use strict";
+
 (function($) {
 	$(document).ready( function () {
 
@@ -14,7 +16,6 @@
 			email = $('#email').val();
 
 			if (name == "" || surname == "" || tel == "" || email == "") {
-				stepSuccess = false;
 				$('.form-wrap').addClass('error-gradient');
 				$('.errorStep2').fadeIn(1000);
 				$('#name, #surname, #tel, #email').each(function() {
@@ -22,7 +23,6 @@
 				})
 			}
 			else {
-				stepSuccess = true;
 				$('.errorStep2').fadeOut();
 				$('.form-wrap').removeClass('error-gradient');
 				if ( $('input[name="delivery"]:checked').val() == "Доставка") {
@@ -37,18 +37,16 @@
 		})
 
 		$('#tab1').on('click', function() {
-			if (stepSuccess) {
-				$('.form').css('height', '400px');
-				$('.form').find('#tab1, .tab1').addClass('active');
-				$('.form').find('#tab2, .tab2').removeClass('active');
-				$('#country').val('');
-				$('#city').val('Не выбрано').css({'border-color':'red', 'box-shadow':'0 0 3px red'});
-				$('#city + .icon').removeClass('goodSelect').addClass('badSelect');
-				$('#zip').val('');
-				$('#address').val('');
-				$('#date').val('');
-				$('#comments').val('');
-			}
+			$('.form').css('height', '400px');
+			$('.form').find('#tab1, .tab1').addClass('active');
+			$('.form').find('#tab2, .tab2').removeClass('active');
+			$('#country').val('');
+			$('#city').val('Не выбрано').css({'border-color':'red', 'box-shadow':'0 0 3px red'});
+			$('#city + .icon').removeClass('goodSelect').addClass('badSelect');
+			$('#zip').val('');
+			$('#address').val('');
+			$('#date').val('');
+			$('#comments').val('');
 		})
 
 		$(':radio').on('click', function() {
@@ -83,12 +81,9 @@
 			date = $('#date').val();
 			comments = $('#comments').val();
 
-			console.log (city);
-
 			$('#city + .icon').removeClass('badSelect');
 
 			if (country == "" || city == "Не выбрано" || zip == "" || address == "" || date == "") {
-				stepSend = false;
 				$('.form-wrap').addClass('error-gradient');
 				$('.errorSend').fadeIn(1000);
 				$('#country, #city, #zip, #address, #date').each(function() {
@@ -102,7 +97,6 @@
 				})
 			}
 			else {
-				stepSend = true;
 				$('.errorSend').fadeOut();
 				$('.form-wrap').removeClass('error-gradient');
 				if ( $('input[name="delivery"]:checked').val() == "Доставка") {
@@ -117,13 +111,13 @@
 
 		})
 
-		var a = location.hash;
-		if (a == "#thanks") {
+		var locationHash = location.hash;
+		if (locationHash == "#thanks") {
 			setTimeout(function() {
 				$('#thanks').fadeOut(1000);
 			},5000);
 		}
-		if (a == "#error") {
+		else if (locationHash == "#error") {
 			setTimeout(function() {
 				$('#error').fadeOut(1000);
 			},5000);
